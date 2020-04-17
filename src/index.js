@@ -1,5 +1,8 @@
 
 import _ from 'lodash';
+import Tiger from './utilities'
+
+console.log(Tiger.say());
 
 const component = () => {
     const element = document.createElement('div');
