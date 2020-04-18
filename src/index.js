@@ -1,19 +1,7 @@
+import React from 'react';
+import ReactDom from 'react-dom';
 
-import _ from 'lodash';
-import './style.css';
-import './style.scss';
-import logo from './logo.png';
-
-const component = () => {
-    const element = document.createElement('div');
-    const array = ['Hello', 'webpack', '!!'];
-    element.innerHTML = _.join(array, ' ');
-    return element;
-}
-
-document.body.appendChild(component());
-document.body.classList.add('bg-main');
-
-const image = new Image();
-image.src = logo;
-document.body.appendChild(image);
+ReactDom.render(
+    <div>Hello, React!</div>,
+    document.getElementById('root')
+);
