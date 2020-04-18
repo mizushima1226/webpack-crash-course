@@ -74,4 +74,6 @@ module.exports = {
             new OptimizeCSSAssetsPlugin({})
         ],
     },
+    //バンドル前のオリジナルソースでエラー箇所を参照してくれる
+    devtool: 'eval-source-map'
 }
