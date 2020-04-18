@@ -1,8 +1,6 @@
 
 import _ from 'lodash';
-import Tiger from './utilities'
-
-console.log(Tiger.say());
+import './style.css';
 
 const component = () => {
     const element = document.createElement('div');
@@ -12,3 +10,4 @@ const component = () => {
 }
 
 document.body.appendChild(component());
+document.body.classList.add('bg-main');
