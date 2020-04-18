@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const outputPath = path.resolve(__dirname, 'dist');
 
@@ -20,10 +21,11 @@ module.exports = {
                 loader: "babel-loader"
             },
             {
-                test: /\.css$/,
+                test: /\.s?css$/,
                 use: [
-                    'style-loader', //2.読み込んだcssをstyleタグに適応する
-                    'css-loader', //1.cssファイルを読み込む
+                    MiniCssExtractPlugin.loader, //3.
+                    'css-loader',   //2.cssファイルを読み込む
+                    'sass-loader'   //1.scssファイルをコンパイルする
                 ]
             },
             {
@@ -35,14 +37,6 @@ module.exports = {
                     limit: 2048,
                     name: './images/[name].[ext]'
                 }
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader', //3.読み込んだcssをstyleタグに適応する
-                    'css-loader',   //2.cssファイルを読み込む
-                    'sass-loader'   //1.scssファイルをコンパイルする
-                ]
             },
             {
                 test: /\.html$/,
@@ -60,6 +54,9 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: './src/index.html',
             filename: './index.html',
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].[hash].css'
         })
     ]
 }
