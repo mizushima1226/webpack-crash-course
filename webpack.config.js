@@ -29,7 +29,15 @@ module.exports = {
                     limit: 2048,
                     name: './images/[name].[ext]'
                 }
-            }
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader', //3.読み込んだcssをstyleタグに適応する
+                    'css-loader',   //2.cssファイルを読み込む
+                    'sass-loader'   //1.scssファイルをコンパイルする
+                ]
+            },
         ],
     },
     //ドキュメントルートの設定
