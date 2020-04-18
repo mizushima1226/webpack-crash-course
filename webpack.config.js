@@ -16,9 +16,19 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    'style-loader',
-                    'css-loader',
+                    'style-loader', //2.読み込んだcssをstyleタグに適応する
+                    'css-loader', //1.cssファイルを読み込む
                 ]
+            },
+            {
+                test: /\.(jpe?g|png|svg|ico)$/i,
+                loader: 'url-loader',
+                //file-loader
+                //ファイルサイズがlimitを超えた場合、別ファイルとして切り出す設定
+                options: {
+                    limit: 2048,
+                    name: './images/[name].[ext]'
+                }
             }
         ],
     },
